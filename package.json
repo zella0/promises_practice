@@ -8,6 +8,10 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "chai-as-promised": "^7.1.1",
     "mocha": "^3.2.0"
+  },
+  "dependencies": {
+    "galvanize-game-mechanics": "^0.1.0"
   }
 }

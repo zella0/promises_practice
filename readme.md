@@ -1,6 +1,6 @@
-# JavaScript Assessment
+# Promises Assessment
 
-Description_Here
+Follow the instructions inside of the `src/main.js` file to get all the tests to pass. This project uses the [galvanize-game-mechanics](https://www.npmjs.com/package/galvanize-game-mechanics) package.
 
 ## Setup
 

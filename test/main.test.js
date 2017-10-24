@@ -9,23 +9,32 @@ describe('answerQuestions', function () {
     const questions = 'Will it rain?,Should I bring an umbrella?,Will I find $10 today?'
     const result = main.answerQuestions(questions)
 
-    return expect(result).to.eventually.be.an('array')
-    return expect(result).to.eventually.have.lengthOf(3)
+    return result.then(answers => {
+      expect(answers).to.be.an('array')
+      expect(answers).to.have.lengthOf(3)
+
+      const allStrings = answers.every(answer => typeof answer === 'string')
+      expect(allStrings).to.be.true
+    })
   })
 
   it('should answer a single question', function () {
     const questions = 'Will it rain?'
     const result = main.answerQuestions(questions)
 
-    return expect(result).to.eventually.be.an('array')
-    return expect(result).to.eventually.have.lengthOf(1)
+    return result.then(answers => {
+      expect(answers).to.be.an('array')
+      expect(answers).to.have.lengthOf(1)
+
+      const isString = typeof answers[0] === 'string'
+      expect(isString).to.be.true
+    })
   })
 
   it('should return a single error as an object questions', function () {
     const questions = 'Will it rain?,,Will I find $10 today?'
-    const result = main.answerQuestions(questions)
+    const result = () => main.answerQuestions(questions)
 
-    return expect(result).to.eventually.be.rejected
-    return expect(result).to.eventually.have.property('error')
+    expect(result).to.throw
   })
 })

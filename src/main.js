@@ -9,14 +9,11 @@ const FortuneTeller = require('galvanize-game-mechanics').FortuneTeller
   result might be:
   [ 'Yes', 'Outlook good', 'My reply is no' ]
 
-  If there is an error with any of the questions, you should just
-  return a single error that is returned from FortuneTeller.
-
-  Remember to return a Promise from the `answerQuestions` format!
+  You do not need to `.catch()` any errors.
 */
 
 function answerQuestions (questions) {
-  
+
 }
 
 module.exports = { answerQuestions }

@@ -12,8 +12,21 @@ const FortuneTeller = require('galvanize-game-mechanics').FortuneTeller
   You do not need to `.catch()` any errors.
 */
 
-function answerQuestions (questions) {
+function answerQuestions( questions ) {
+  let result = [];
+  let questionArray = questions.split( "," )
+  let promises = questionArray.map(question=>{
+    return FortuneTeller.ask(question)
+  })
 
+  return Promise.all(promises).then((res)=>{
+     return res.map((item)=>{
+       return item.response;
+     })
+   })
 }
 
-module.exports = { answerQuestions }
+
+module.exports = {
+  answerQuestions
+}
